@@ -18,8 +18,17 @@ $\dot{\omega}_y = \frac{(I_z - I_x) \omega_z \omega_x}{I_y}$
 
 $\dot{\omega}_z = \frac{(I_x - I_y) \omega_y \omega_x}{I_x}$ 
 
-For the quaternion:
-$\begin{bmatrix} 0&-\omega_x&-\omega_y&-\omega \\ \omega_x&0&\omega_z&-\omega_y\\ \omega_y&-\omega_z&0&\omega_x\\ \omega_z&\omega_y&-\omega_x&0 \end{bmatrix}$
+For the quaternion: 
+
+$$
+\begin{bmatrix}
+0 & -\omega_x & -\omega_y & -\omega \\
+\omega_x & 0 & \omega_z & -\omega_y \\
+\omega_y & -\omega_z & 0 & \omega_x \\
+\omega_z & \omega_y & -\omega_x & 0
+\end{bmatrix}
+$$
+
 
 I combine the time derivates of the angular velocity and orientation into one column vector.
 
