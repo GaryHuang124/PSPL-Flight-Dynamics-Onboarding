@@ -16,4 +16,5 @@ w_0 = [pi, 0.05, 0.05]; % initial angular velocity [rad / s]
 q_0 = [1, 0, 0, 0]; % initial orientation
 
 X_0 = [w_0, q_0]; % Initial state vector
-[t, X] = ode45(@(time, input)state_vector_derivative(time, input, I), [0, 20], X_0);
+time_span = [0, 20];
+[t, X] = ode45(@(time, input)state_vector_derivative(time, input, I), time_span, X_0);

@@ -10,7 +10,8 @@ The code dzhanibekov_onboarding.m simulates the Dzhanibekov effect for a tennis 
 
 The code state_vector_derivative.m calculates the time derivative of the state vector. The math can be found in the Flight Dynamics Onboarding pdf. I have included the math here for completeness.
 
-For the angular acceleration:
+For the angular acceleration: 
+
 $\dot{\omega}_x = \frac{(I_y - I_z) \omega_y \omega_z}{I_x}$ 
 
 $\dot{\omega}_y = \frac{(I_z - I_x) \omega_z \omega_x}{I_y}$ 
@@ -18,12 +19,16 @@ $\dot{\omega}_y = \frac{(I_z - I_x) \omega_z \omega_x}{I_y}$
 $\dot{\omega}_z = \frac{(I_x - I_y) \omega_y \omega_x}{I_x}$ 
 
 For the quaternion:
-\begin{bmatrix}
+$\begin{bmatrix}
         0&-\omega_x&-\omega_y&-\omega\\
         \omega_x&0&\omega_z&-\omega_y\\
         \omega_y&-\omega_z&0&\omega_x\\
         \omega_z&\omega_y&-\omega_x&0
-    \end{bmatrix}
+    \end{bmatrix}$
+
+I combine the time derivates of the angular velocity and orientation into one column vector.
+
+Going back to dzhanibekov_onboarding.m, I use ode45 to integrate the system from 0 to 20 seconds.
 
 This concludes my Flight Dynamics Onboarding project.
 
