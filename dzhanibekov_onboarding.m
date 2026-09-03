@@ -12,9 +12,14 @@ I_z = 0.027; % z_axis inertia [kg * m^2]
 I = [I_x, I_y, I_z];
 
 % Initial conditions
-w_0 = [pi, 0.05, 0.05]; % initial angular velocity [rad / s]
-q_0 = [1, 0, 0, 0]; % initial orientation
+w_0 = [pi, 0.05, 0.05]'; % initial angular velocity [rad / s]
+q_0 = [1, 0, 0, 0]'; % initial orientation
 
-X_0 = [w_0, q_0]; % Initial state vector
-time_span = [0, 20];
+X_0 = [w_0; q_0]; % Initial state vector
+time_span = linspace(0,20);
 [t, X] = ode45(@(time, input)state_vector_derivative(time, input, I), time_span, X_0);
+
+w_array = [X(:, 1), X(:, 2), X(:, 3)];
+q_array = [X(:, 4), X(:, 5), X(:, 6), X(:, 7)]';
+
+RotationsVisualizer(q_array, t, false)

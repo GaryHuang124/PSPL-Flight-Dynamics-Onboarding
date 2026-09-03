@@ -1,9 +1,9 @@
 function [X_dot] = state_vector_derivative(time, input, I)
 w = [input(1), input(2), input(3)];
 q = [input(4), input(5), input(6), input(7)];
-w_x_dot = (I(2) - I(1)) * w(2) * w(3) / I(1);
+w_x_dot = (I(2) - I(3)) * w(2) * w(3) / I(1);
 w_y_dot = (I(3) - I(1)) * w(3) * w(1) / I(2);
-w_z_dot = (I(1) - I(3)) * w(2) * w(1) / I(3);
+w_z_dot = (I(1) - I(2)) * w(2) * w(1) / I(3);
 w_dot = [w_x_dot, w_y_dot, w_z_dot];
 rotation_matrix = [[0, -w(1), -w(2), -w(3)]; [w(1), 0, w(3), -w(2)]; [w(2), -w(3), 0, w(1)]; [w(3), w(2), -w(1), 0]];
 q_dot = 0.5 * rotation_matrix * q';
